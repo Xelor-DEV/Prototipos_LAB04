@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerScore : MonoBehaviour
 {
-    public PlayerScoreData ScoreData;
+    public PlayerScoreData _ScoreData;
+    public static PlayerScoreData ScoreData;
 
     public event Action<float> OnScoreChanged;
     public event Action<int> OnScoreAdded;
@@ -14,7 +15,10 @@ public class PlayerScore : MonoBehaviour
     {
         OnScoreChanged?.Invoke(ScoreData.Score);
     }
-
+    private void Update()
+    {
+        ScoreData = _ScoreData;
+    }
     public void AddPoints(int points)
     {
         AddScore(points);

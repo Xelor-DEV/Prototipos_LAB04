@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Coin
   - Hearth
+  - FinishObject
   layers:
   - Default
   - TransparentFX

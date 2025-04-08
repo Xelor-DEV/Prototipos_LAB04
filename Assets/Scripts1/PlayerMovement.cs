@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using static UnityEngine.UI.Image;
 
 public class PlayerMovement : MonoBehaviour
@@ -46,6 +47,10 @@ public class PlayerMovement : MonoBehaviour
         {
             canJump = true;
             currentExtraJumps = maxExtraJumps;
+        }
+        if (collision.transform.tag == "FinishObject")
+        {
+            SceneManager.LoadScene("Results");
         }
     }
     public void OnMovement(InputAction.CallbackContext context)

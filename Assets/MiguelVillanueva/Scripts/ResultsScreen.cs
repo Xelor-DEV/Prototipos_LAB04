@@ -10,6 +10,10 @@ public class ResultsScreen : MonoBehaviour
     [SerializeField] private string winMessage = "Level Complete!";
     [SerializeField] private string loseMessage = "Level Failed";
 
+    private void Start()
+    {
+        resultText.text = PlayerScore.ScoreData.Score.ToString();
+    }
     private void ShowResults(bool levelWon, float timeTaken)
     {
         if(levelWon == true)
