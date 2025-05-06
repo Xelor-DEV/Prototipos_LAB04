@@ -13,6 +13,7 @@ public class HealthManager : MonoBehaviour
     //public event Action<int> OnHealed;
 
     [SerializeField] private GameIntEvent onHurt;
+    [SerializeField] private GameIntEvent onCure;
 
     public event Action OnDeath;
 
@@ -26,13 +27,15 @@ public class HealthManager : MonoBehaviour
     {
         if (collision.transform.tag == "Enemy")
         {
-            TakeDamage(1);
+            onHurt.Raise(1);
+            //TakeDamage(1);
         }
         if (collision.transform.GetComponent<ColorObject>())
         {
             if(collision.transform.GetComponent<ColorObject>().color == GetComponent<ColorMechanic>().color)
             {
-                TakeDamage(1);
+                onHurt.Raise(1);
+                //TakeDamage(1);
             }
         }
 
@@ -41,7 +44,8 @@ public class HealthManager : MonoBehaviour
     {
         if (collision.tag == "Hearth")
         {
-            Heal(1);
+            //Heal(1);
+            onCure.Raise(1);
             Destroy(collision.gameObject);
         }
     }
@@ -54,7 +58,6 @@ public class HealthManager : MonoBehaviour
 
         //OnDamaged?.Invoke(amount);
         //OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
-
 
         if (CurrentHealth == 0)
         {

@@ -3189,7 +3189,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 10
   CurrentHealth: 0
-  onHurt: {fileID: 0}
+  onHurt: {fileID: 11400000, guid: 6948ee8b465711847af4d18c2c289335, type: 2}
+  onCure: {fileID: 11400000, guid: 6d322341cc1685c4caa50e16a068a388, type: 2}
 --- !u!114 &1888180908
 MonoBehaviour:
   m_ObjectHideFlags: 0
