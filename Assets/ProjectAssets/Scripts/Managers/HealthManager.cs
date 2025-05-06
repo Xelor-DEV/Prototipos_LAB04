@@ -1,4 +1,6 @@
 using System;
+using System.Diagnostics.Tracing;
+using Assets.ProjectAssets.Scripts.GameEvents;
 using UnityEngine;
 
 public class HealthManager : MonoBehaviour
@@ -6,15 +8,18 @@ public class HealthManager : MonoBehaviour
     public int MaxHealth = 100;
     public int CurrentHealth;
 
-    public event Action<int, int> OnHealthChanged;
-    public event Action<int> OnDamaged;
-    public event Action<int> OnHealed;
+    //public event Action<int, int> OnHealthChanged;
+    //public event Action<int> OnDamaged;
+    //public event Action<int> OnHealed;
+
+    [SerializeField] private GameIntEvent onHurt;
+
     public event Action OnDeath;
 
     private void Awake()
     {
         CurrentHealth = MaxHealth;
-        OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
+        //OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -47,8 +52,9 @@ public class HealthManager : MonoBehaviour
         CurrentHealth -= amount;
         CurrentHealth = Mathf.Max(CurrentHealth, 0);
 
-        OnDamaged?.Invoke(amount);
-        OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
+        //OnDamaged?.Invoke(amount);
+        //OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
+
 
         if (CurrentHealth == 0)
         {
@@ -62,7 +68,7 @@ public class HealthManager : MonoBehaviour
         CurrentHealth += amount;
         CurrentHealth = Mathf.Min(CurrentHealth, MaxHealth);
 
-        OnHealed?.Invoke(amount);
-        OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
+        //OnHealed?.Invoke(amount);
+        //OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
     }
 }
