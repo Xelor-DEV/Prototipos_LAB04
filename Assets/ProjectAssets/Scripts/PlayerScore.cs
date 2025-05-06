@@ -1,5 +1,5 @@
 using System;
-using Unity.VisualScripting;
+using Assets.ProjectAssets.Scripts.GameEvents;
 using UnityEngine;
 
 public class PlayerScore : MonoBehaviour
@@ -10,6 +10,9 @@ public class PlayerScore : MonoBehaviour
     public event Action<float> OnScoreChanged;
     public event Action<int> OnScoreAdded;
     public event Action OnScoreReset;
+
+    [SerializeField] private GameIntEvent onGetCoin;
+    [SerializeField] private GameIntEvent onChangeScore;
 
     private void Start()
     {
@@ -37,11 +40,13 @@ public class PlayerScore : MonoBehaviour
     {
         if (collision.tag == "Coin")
         {
-            AddPoints(1);
+            //AddPoints(1);
+            onGetCoin.Raise(1);
+            onChangeScore.Raise(ScoreData.Score);
             Destroy(collision.gameObject);
         }
     }
-    public void AddScore(float add)
+    public void AddScore(int add)
     {
         ScoreData.Score += add;
     }
