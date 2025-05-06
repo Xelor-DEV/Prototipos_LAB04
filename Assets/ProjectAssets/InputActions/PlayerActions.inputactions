@@ -26,7 +26,7 @@
             ],
             "bindings": [
                 {
-                    "name": "1D Axis",
+                    "name": "AD",
                     "id": "7882987e-2d6f-4dd5-bf2f-01200863ac3a",
                     "path": "1DAxis",
                     "interactions": "",

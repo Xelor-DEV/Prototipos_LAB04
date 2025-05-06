@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using static UnityEngine.UI.Image;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -18,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rigidBody2D;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();

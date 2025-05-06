@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 7863528865729497231}
   - component: {fileID: 6240241259992283947}
   m_Layer: 0
-  m_Name: Hearth
+  m_Name: Health
   m_TagString: Hearth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
